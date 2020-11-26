@@ -1,4 +1,4 @@
-# wip:dotfiles
+# dotfiles [WIP]
 
 ## Installation
 
