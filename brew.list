@@ -1,34 +1,50 @@
-autojump
-libfido2
-postgresql
+# Core system tools
 bash
-libidn2
-python@3.8
-bash-completion@2
-libunistring
-python@3.9
+zsh
 curl
+wget
+openssh
+openssl
+
+# Development tools
+git
+node
+python3
+openjdk
 maven
+
+# Modern CLI replacements (faster, better UX)
+bat          # Better 'cat' with syntax highlighting
+exa          # Better 'ls' with colors and git status
+ripgrep      # Much faster 'grep' replacement
+fd           # Better 'find' replacement
+zoxide       # Modern 'z' replacement (faster directory jumping)
+fzf          # Fuzzy finder
+thefuck      # Command correction
+
+# Text processing and utilities
+jq           # JSON processor
+yq           # YAML processor
+tree         # Directory structure visualization
+htop         # Better 'top' replacement
+ncdu         # Disk usage analyzer
+
+# Databases
+postgresql
+sqlite
+
+# Additional development tools
+gh           # GitHub CLI
+diff-so-fancy # Better git diff output
+tig          # Terminal git browser
+lazygit      # Terminal git UI
+
+# System libraries (automatically installed as dependencies, but listed for clarity)
 readline
 findutils
 moreutils
-screen
-gdbm
-ncurses
-sqlite
 gettext
-node
-wget
-icu4c
-openjdk
-xz
-krb5
-openssh
-zsh
-ldns
-openssl@1.1
 zsh-completions
-libcbor
-pcre
-java
+
+# Editor
 macvim

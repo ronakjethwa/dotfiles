@@ -9,13 +9,20 @@ ZSH_THEME="spaceship"
 
 # Plugins to load — minimal, essential, and popular
 plugins=(
-  git
-  z
-  fzf
-  alias-tips
-  zsh-autosuggestions
-  zsh-syntax-highlighting
+  git                  # Essential Git commands and aliases
+  z                    # Directory jumping
+  fzf                  # Command-line fuzzy finder integration
+  alias-tips           # Tips for using your defined aliases
+  zsh-autosuggestions  # Suggest commands as you type
+  zsh-syntax-highlighting # Syntax highlighting for the shell
+  thefuck              # Correct previous command by typing `fuck`
+  zsh-completions      # Extra completion definitions for many commands
+  history-substring-search # Improved search through your command history by substring
+  extract              # Automatic archive extraction with one command
+  sudo                 # Quickly rerun last command with sudo
+  gitfast              # Faster git status and completions
 )
+
 
 # Disable update checks to speed up startup
 DISABLE_AUTO_UPDATE="true"
@@ -65,18 +72,23 @@ source $ZSH/oh-my-zsh.sh
 # Load custom aliases if present
 [ -f ~/.zsh_aliases ] && source ~/.zsh_aliases
 
-# Preferred editor setting example (uncomment and customize)
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='nvim'
-# fi
+# Preferred editor settings
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='code'  # VS Code as default, change to 'nvim' if you prefer Neovim
+fi
+export VISUAL="$EDITOR"
 
-# Setup Node Version Manager (NVM) safely
+# Setup Node Version Manager (NVM) with lazy loading for faster startup
 export NVM_DIR="$HOME/.nvm"
 if [ -s "$NVM_DIR/nvm.sh" ]; then
-  source "$NVM_DIR/nvm.sh"
+  # Lazy load NVM to speed up shell startup
+  alias nvm='unalias nvm; [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"; nvm $@'
+  # Set default node version if .nvmrc doesn't exist
+  [ ! -f .nvmrc ] && echo "node" > /tmp/.nvmrc_default
 fi
 if [ -s "$NVM_DIR/bash_completion" ]; then
   source "$NVM_DIR/bash_completion"
 fi
+
