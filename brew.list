@@ -13,33 +13,24 @@ python3
 openjdk
 maven
 
-# Modern CLI replacements (faster, better UX)
-bat          # Better 'cat' with syntax highlighting
-exa          # Better 'ls' with colors and git status
-ripgrep      # Much faster 'grep' replacement
-fd           # Better 'find' replacement
-zoxide       # Modern 'z' replacement (faster directory jumping)
+# Essential utilities
+tree         # Directory structure visualization
+htop         # Better 'top' replacement
 fzf          # Fuzzy finder
 thefuck      # Command correction
 
-# Text processing and utilities
+# Text processing
 jq           # JSON processor
-yq           # YAML processor
-tree         # Directory structure visualization
-htop         # Better 'top' replacement
-ncdu         # Disk usage analyzer
 
 # Databases
 postgresql
 sqlite
 
-# Additional development tools
+# Development tools
 gh           # GitHub CLI
-diff-so-fancy # Better git diff output
 tig          # Terminal git browser
-lazygit      # Terminal git UI
 
-# System libraries (automatically installed as dependencies, but listed for clarity)
+# System libraries
 readline
 findutils
 moreutils

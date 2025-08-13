@@ -63,17 +63,15 @@ source ~/.zshrc
 - **Performance tuning** with compinit caching and lazy NVM loading
 - **Smart history** with deduplication and sharing between sessions
 
-### Modern CLI Tools (`brew.list`)
-- `bat` - Better `cat` with syntax highlighting
-- `exa` - Better `ls` with colors and Git status
-- `ripgrep` - Much faster `grep` replacement
-- `fd` - Better `find` replacement
-- `zoxide` - Modern directory jumping
-- `fzf` - Fuzzy finder for everything
-- And many more productivity tools
+### Essential Tools (`brew.list`)
+- Core development tools (Git, Node.js, Python, Java)
+- Useful utilities (`tree`, `htop`, `fzf`, `jq`)
+- Development tools (`gh` for GitHub, `tig` for Git browsing)
+- System essentials and libraries
 
 ### Aliases (`.zsh_aliases`)
-- Modern tool shortcuts (`ls` → `exa`, `cat` → `bat`)
+- Directory navigation shortcuts (`cl`, `..`, `...`, `cd..`)
+- List commands (`ll`, `lll` for time-sorted listing)
 - Git workflow aliases (`gs`, `ga`, `gc`, etc.)
 - System utilities and network commands
 - Safety nets for destructive commands

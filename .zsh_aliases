@@ -1,13 +1,9 @@
 # Custom aliases for enhanced productivity
 
-# Modern CLI tool aliases (if you install the new brew packages)
-alias cat='bat'                    # Better cat with syntax highlighting
-alias ls='exa'                     # Better ls with colors
-alias ll='exa -la'                 # Detailed list view
+# List and file operations
+alias ll='ls -la'                  # Detailed list view
 alias lll='ls -ltr'                # Long list sorted by time (reverse)
-alias lt='exa --tree'              # Tree view
-alias grep='rg'                    # Use ripgrep instead of grep
-alias find='fd'                    # Use fd instead of find
+alias lt='tree'                    # Tree view (if tree is installed)
 
 # Git shortcuts
 alias g='git'
