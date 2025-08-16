@@ -1,34 +1,41 @@
-autojump
-libfido2
-postgresql
+# Core system tools
 bash
-libidn2
-python@3.8
-bash-completion@2
-libunistring
-python@3.9
+zsh
 curl
+wget
+openssh
+openssl
+
+# Development tools
+git
+node
+python3
+openjdk
 maven
+
+# Essential utilities
+tree         # Directory structure visualization
+htop         # Better 'top' replacement
+fzf          # Fuzzy finder
+thefuck      # Command correction
+
+# Text processing
+jq           # JSON processor
+
+# Databases
+postgresql
+sqlite
+
+# Development tools
+gh           # GitHub CLI
+tig          # Terminal git browser
+
+# System libraries
 readline
 findutils
 moreutils
-screen
-gdbm
-ncurses
-sqlite
 gettext
-node
-wget
-icu4c
-openjdk
-xz
-krb5
-openssh
-zsh
-ldns
-openssl@1.1
 zsh-completions
-libcbor
-pcre
-java
+
+# Editor
 macvim

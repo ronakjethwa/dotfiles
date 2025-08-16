@@ -1,27 +1,61 @@
-# easier navigation: .., ..., ~ and -
-alias cl="clear"
-alias ~="cd ~"
-alias ..="cd .."
-alias cd..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
-alias lll="ls -ltr"
+# Custom aliases for enhanced productivity
 
-# easier git commands
-alias gst="git status"
-alias gb="git branch"
-alias gc="git checkout"
-alias gl="git log --oneline --decorate --color"
-alias gmaster="git checkout master"
-alias gamend="git add . && git commit --amend --no-edit"
-alias gcommit="git add . && git commit -m"
-alias gdiff="git diff"
-alias gforce="git push --force"
-alias gnuke="git clean -df && git reset --hard"
-alias gpull="git pull"
-alias gpush="git push"
-alias gresolve="git add . && git commit --no-edit"
-alias gunstage="git restore --staged ."
-alias nukenode="rm -rf package-lock.json && rm -rf node_modules"
-alias restorenode="rm -rf package-lock.json && rm -rf node_modules && npm install"
+# List and file operations
+alias ll='ls -la'                  # Detailed list view
+alias lll='ls -ltr'                # Long list sorted by time (reverse)
+alias lt='tree'                    # Tree view (if tree is installed)
+
+# Git shortcuts
+alias g='git'
+alias gs='git status'
+alias ga='git add'
+alias gc='git commit'
+alias gp='git push'
+alias gl='git pull'
+alias gd='git diff'
+alias gb='git branch'
+alias gco='git checkout'
+
+# Directory navigation
+alias cl='clear'
+alias ~='cd ~'
+alias ..='cd ..'
+alias cd..='cd ..'                 # Common typo variant
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias -- -='cd -'
+
+# System shortcuts
+alias h='history'
+alias j='jobs -l'
+alias path='echo -e ${PATH//:/\\n}'
+alias now='date +"%T"'
+alias nowtime=now
+alias nowdate='date +"%d-%m-%Y"'
+
+# Network and system info
+alias myip='curl ipv4.icanhazip.com'
+alias localip='ipconfig getifaddr en0'
+alias ports='netstat -tulanp'
+
+# Cleanup commands
+alias cleanup='brew cleanup && brew autoremove'
+alias flushdns='sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder'
+
+# Development shortcuts
+alias serve='python3 -m http.server 8000'  # Quick HTTP server
+alias jsonpp='python3 -m json.tool'        # Pretty print JSON
+alias urlencode='python3 -c "import sys, urllib.parse as ul; print(ul.quote_plus(sys.argv[1]))"'
+
+# Safety nets
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+alias ln='ln -i'
+
+# Docker shortcuts (if you use Docker)
+alias d='docker'
+alias dc='docker-compose'
+alias dps='docker ps'
+alias di='docker images'
