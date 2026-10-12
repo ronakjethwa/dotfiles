@@ -14,6 +14,9 @@
   "theme": "dark",
   "model": "opus",
   "fallbackModel": ["sonnet"],
+  "attribution": {
+    "commit": ""
+  },
   "permissions": {
     "ask": [
       "Bash(git push)",

@@ -1,3 +1,9 @@
+# Conventions
+
+- Commits: no `Co-Authored-By: Claude` trailer (`attribution.commit` is empty in settings). Keep commit messages plain and descriptive.
+- Repos with a production deploy on `main` (ronakjethwa-com, ronakjethwa.photos): work on a branch and open a PR. Never push to `main` directly.
+- Project-specific rules (stack, design system, build quirks) live in each repo's own `CLAUDE.md`, not here. This file is public in github.com/ronakjethwa/dotfiles.
+
 # Model routing policy
 
 | Work | Model | How |
