@@ -1,19 +1,4 @@
 {
-  "enabledPlugins": {
-    "gitkraken-hooks@gitkraken": true
-  },
-  "extraKnownMarketplaces": {
-    "gitkraken": {
-      "source": {
-        "source": "directory",
-        "path": "/Users/ronakjethwa-air/.claude/plugins/marketplaces/gitkraken"
-      }
-    }
-  },
-  "tui": "fullscreen",
-  "theme": "dark",
-  "model": "opus",
-  "fallbackModel": ["sonnet"],
   "attribution": {
     "commit": ""
   },
@@ -29,6 +14,10 @@
       "Bash(gh release create *)"
     ]
   },
+  "model": "opus",
+  "fallbackModel": [
+    "sonnet"
+  ],
   "hooks": {
     "PreToolUse": [
       {
@@ -52,5 +41,19 @@
   "statusLine": {
     "type": "command",
     "command": "~/.claude/hooks/statusline.sh"
-  }
+  },
+  "enabledPlugins": {
+    "gitkraken-hooks@gitkraken": true,
+    "playwright@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {
+    "gitkraken": {
+      "source": {
+        "source": "directory",
+        "path": "/Users/ronakjethwa-air/.claude/plugins/marketplaces/gitkraken"
+      }
+    }
+  },
+  "tui": "fullscreen",
+  "theme": "dark"
 }
