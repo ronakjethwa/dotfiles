@@ -1,6 +1,6 @@
 #!/bin/sh
 # PreToolUse hook for the Agent tool: enforces the model routing policy in ~/.claude/CLAUDE.md.
-#   - Any Fable request -> denied unless ~/.claude/fable-ok exists; that flag is deleted on use (one launch per approval).
+#   - Any Fable request -> denied unless ~/.claude/fable-ok exists (Claude touches it after a verbal yes from the user in chat); that flag is deleted on use (one launch per approval).
 #   - researcher -> opus, developer -> sonnet, runner -> haiku: a conflicting model override is rewritten to the tier's model.
 # Prints nothing (no opinion) for everything else.
 input=$(cat)
@@ -19,7 +19,7 @@ printf '%s' "$input" | jq -c --argjson ok "$fable_ok" '
           permissionDecisionReason: "Fable approved by user (one-time ~/.claude/fable-ok consumed)."}}
       else
         {hookSpecificOutput: {hookEventName: "PreToolUse", permissionDecision: "deny",
-          permissionDecisionReason: "Fable needs explicit user approval. Ask the user in chat; to allow one launch they run: ! touch ~/.claude/fable-ok"}}
+          permissionDecisionReason: "Fable needs explicit user approval. Ask the user in chat; on a clear yes, run `touch ~/.claude/fable-ok` as its own Bash call, then retry this launch."}}
       end
     elif $tier != null and $m != "" and ($m | ascii_downcase | contains($tier) | not) then
       {hookSpecificOutput: {hookEventName: "PreToolUse", permissionDecision: "allow",
