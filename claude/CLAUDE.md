@@ -1,19 +1,32 @@
-# Conventions
+# Global conventions
 
-- Commits: no `Co-Authored-By: Claude` trailer (`attribution.commit` is empty in settings). Keep commit messages plain and descriptive.
-- Repos with a production deploy on `main` (ronakjethwa-com, ronakjethwa.photos): work on a branch and open a PR. Never push to `main` directly.
-- Project-specific rules (stack, design system, build quirks) live in each repo's own `CLAUDE.md`, not here. This file is public in github.com/ronakjethwa/dotfiles.
+These apply everywhere. A project's own `CLAUDE.md` wins where they disagree.
 
-# Model routing policy
+## Git
 
-| Work | Model | How |
-|---|---|---|
-| Deep tasks, research, investigation (root-causing bugs, understanding systems, comparing options, reading docs/web, designing plans) | **Opus** | Do it in the main session when it is on Opus, or delegate to the `researcher` agent. Don't hand investigation to Haiku-backed agents (e.g. Explore). |
-| Implementation (writing code, executing a plan, following explicit instructions, builds, tests, deploys) | **Sonnet** | Delegate to the `developer` agent with the plan and clear acceptance criteria. |
-| Mundane, mechanical tasks that need no judgment (cloning a repo, fetching/downloading a file, moving files, running a known command and returning output) | **Haiku** | Delegate to the `runner` agent. Escalate back if the task turns out to need thinking. |
-| Anything | **Fable** | Only when the user explicitly gives permission in the current conversation. Never on my own initiative. |
+- Never add `Co-Authored-By: Claude` or `Generated with Claude Code` to a commit message or PR description. My commits are mine.
+- Branch, then open a PR. Don't commit or push straight to `main`.
+- Commit subjects: imperative, under ~60 chars. Body only when the diff doesn't already explain the why.
 
-- Typical flow: Opus investigates and writes the plan → Sonnet implements it → Opus reviews if the change is risky. `/ship` runs this flow end to end, saving plans to `~/.claude/plans/`.
-- Pushes, publishes, and deploys always need the user's confirmation; `permissions.ask` in settings enforces this.
-- When a task mixes both, split it: investigation first on Opus, then hand the settled plan to Sonnet.
-- Use the family aliases (`opus`, `sonnet`, `haiku`) so models resolve to the latest version.
+## Model routing
+
+- **Opus** — investigation, debugging, architecture, anything research-shaped.
+- **Sonnet** — landing a change whose shape is already decided.
+- **Haiku** — mundane mechanical work: search, renames, file moves, formatting.
+- **Fable** — ask me first. Never choose it on your own.
+
+- Delegate research to the `researcher` agent (Opus), settled implementation to `developer` (Sonnet), and mundane work to `runner` (Haiku) rather than doing it at Opus prices.
+- Don't hand investigation to Haiku-backed agents such as Explore.
+- Pushes, publishes and deploys need a clear yes from me in chat first.
+
+## Typography and design
+
+- No tiny text. Sentence-length copy sits around 0.95–1.05rem; sub-0.8rem prose is a bug, not a style.
+- Three fonts maximum, each with exactly one job. Mono is for short uppercase labels, kickers and dates — never sentences.
+- I review visually. For a design change, show rendered output; a prose description of a layout isn't a review.
+
+## Working style
+
+- Report what you actually ran and what came back. If a check failed, show its output.
+- No comments that restate the code.
+- Smallest change that works. Don't refactor what I didn't ask about.
