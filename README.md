@@ -55,6 +55,10 @@ ln -sf ~/dotfiles/.zsh_aliases ~/.zsh_aliases
 source ~/.zshrc
 ```
 
+## Claude Code
+
+Model-routing config (agents, hook, `/ship`, settings) lives in `claude/` and is symlinked into `~/.claude/` with `./claude/install.sh`. See [claude/README.md](claude/README.md).
+
 ## What's Included
 
 ### Zsh Configuration (`.zshrc`)

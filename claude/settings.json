@@ -1,0 +1,53 @@
+{
+  "enabledPlugins": {
+    "gitkraken-hooks@gitkraken": true
+  },
+  "extraKnownMarketplaces": {
+    "gitkraken": {
+      "source": {
+        "source": "directory",
+        "path": "/Users/ronakjethwa-air/.claude/plugins/marketplaces/gitkraken"
+      }
+    }
+  },
+  "tui": "fullscreen",
+  "theme": "dark",
+  "model": "opus",
+  "fallbackModel": ["sonnet"],
+  "permissions": {
+    "ask": [
+      "Bash(git push)",
+      "Bash(git push *)",
+      "Bash(npm publish *)",
+      "Bash(netlify deploy *)",
+      "Bash(vercel *)",
+      "Bash(wrangler deploy *)",
+      "Bash(gh pr merge *)",
+      "Bash(gh release create *)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Agent",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/model-routing.sh",
+            "onFailure": "block",
+            "statusMessage": "Checking model routing policy"
+          },
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/log-routing.sh",
+            "async": true
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/hooks/statusline.sh"
+  }
+}
