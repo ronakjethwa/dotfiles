@@ -6,6 +6,8 @@
     "ask": [
       "Bash(git push)",
       "Bash(git push *)",
+      "Bash(git -C * push)",
+      "Bash(git -C * push *)",
       "Bash(npm publish *)",
       "Bash(netlify deploy *)",
       "Bash(vercel *)",
@@ -33,6 +35,17 @@
             "type": "command",
             "command": "~/.claude/hooks/log-routing.sh",
             "async": true
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/push-gate.sh",
+            "onFailure": "block",
+            "statusMessage": "Checking git push approval"
           }
         ]
       }
